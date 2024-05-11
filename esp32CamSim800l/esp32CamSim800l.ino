@@ -5,6 +5,7 @@
 #include <LittleFS.h>
 #include "ftpParams.h"
 #include "Sim800lClient.h"
+#include <Arduino.h>
 
 #define uS_TO_M_FACTOR 60000000ULL    //Conversion factor for micro seconds to minutes
 #define TIME_TO_SLEEP_MINUTES  1     //Time ESP32 will go to sleep (in minutes)
@@ -32,6 +33,8 @@
 #else
   #error "Camera model not selected"
 #endif
+
+#define FLASH_GPIO_NUM 4
 
 // Photo File Name to save in LITTLEFS
 #define FILE_PHOTO "/photo.jpg"
@@ -81,6 +84,8 @@ void setup() {
   config.xclk_freq_hz = 20000000;
   config.pixel_format = PIXFORMAT_JPEG;
   
+  pinMode(FLASH_GPIO_NUM, OUTPUT);
+  
    config.frame_size = FRAMESIZE_VGA;
    config.jpeg_quality = 12;
    config.fb_count = 1;
@@ -120,8 +125,10 @@ void loop() {
 // Capture Photo and Save it to LITTLEFS
 boolean capturePhotoSaveLITTLEFS( void ) {
   camera_fb_t * fb = NULL; // pointer
-
     // Take a photo with the camera
+    
+    digitalWrite(FLASH_GPIO_NUM, HIGH);
+
     Serial.println("Taking a photo");
     fb = esp_camera_fb_get();
     if (!fb) {
@@ -145,6 +152,9 @@ boolean capturePhotoSaveLITTLEFS( void ) {
     // Close the file
     file.close();
     esp_camera_fb_return(fb);
+
+    digitalWrite(FLASH_GPIO_NUM, LOW);
+
   return true;  
 }
 
