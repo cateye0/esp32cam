@@ -12,7 +12,7 @@ https://www.aliexpress.com/item/1005003683528292.html
 
 if you buy this board you need to double check:
 
-the resistors and capacitors is solderen on the sim card slot side,
+the resistors and capacitors are soldered on the sim card slot side,
 the capacitor on the IC side is bigger
 ![SIM800L_EVB_V2 2](https://github.com/cateye0/esp32cam/assets/4243747/870f0c60-1090-487f-96ea-262c011d5403)
 
