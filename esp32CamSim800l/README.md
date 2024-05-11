@@ -12,12 +12,18 @@ https://www.aliexpress.com/item/1005003683528292.html
 
 if you buy this board you need to double check:
 
-the resistors and capacitors is solderen on the sim card slot side
+the resistors and capacitors is solderen on the sim card slot side,
 the capacitor on the IC side is bigger
 ![SIM800L_EVB_V2 2](https://github.com/cateye0/esp32cam/assets/4243747/870f0c60-1090-487f-96ea-262c011d5403)
 
+wiring:
+i use my pc usb port to power up the esp32 board
+and a laboratory power supply  (I set 3A; V set 5V) for power up sim800l module
+
+![ESP32_SIM800L_wiring](https://github.com/cateye0/esp32cam/assets/4243747/743185f9-b45c-4338-bdcc-550f52603c2b)
 
 
+###########################################################################################################
 # Esp32 Cam Sim800L GSM module integration
 Sample code for sending pictures from Esp32 Cam to FTP Server using SIM 800L GSM module.   
 In this example pictures are taken in predefined periods (e.g. every 10 minutes, every hour, etc.).
