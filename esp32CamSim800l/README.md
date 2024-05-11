@@ -5,7 +5,7 @@ Guru Meditation Error: Core 1 panic'ed (LoadProhibited). Exception was unhandled
 
 and i change the hardware, i used sim800l v2.2 board 
 
-i try many v2.2 board, but not working at all
+i try many v2.2 board, but not working at all (i got AT+CREG 0,2 and 0,3 errors all the time)
 
 except this:
 https://www.aliexpress.com/item/1005003683528292.html
