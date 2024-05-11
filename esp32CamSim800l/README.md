@@ -1,3 +1,10 @@
+
+I roll back to https://github.com/pawel-piwowar/esp32cam/commit/d091dd2df8f462de2a622e40bd5025812037246c because the latest version is not working for me
+i got:
+Guru Meditation Error: Core 1 panic'ed (LoadProhibited). Exception was unhandled.
+
+and i change the hardware, i used sim800l v2.2 board 
+
 # Esp32 Cam Sim800L GSM module integration
 Sample code for sending pictures from Esp32 Cam to FTP Server using SIM 800L GSM module.   
 In this example pictures are taken in predefined periods (e.g. every 10 minutes, every hour, etc.).
