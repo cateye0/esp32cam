@@ -5,6 +5,19 @@ Guru Meditation Error: Core 1 panic'ed (LoadProhibited). Exception was unhandled
 
 and i change the hardware, i used sim800l v2.2 board 
 
+i try many v2.2 board, but not working at all
+
+except this:
+https://www.aliexpress.com/item/1005003683528292.html
+
+if you buy this board you need to double check:
+
+the resistors and capacitors is solderen on the sim card slot side
+the capacitor on the IC side is bigger
+![SIM800L_EVB_V2 2](https://github.com/cateye0/esp32cam/assets/4243747/870f0c60-1090-487f-96ea-262c011d5403)
+
+
+
 # Esp32 Cam Sim800L GSM module integration
 Sample code for sending pictures from Esp32 Cam to FTP Server using SIM 800L GSM module.   
 In this example pictures are taken in predefined periods (e.g. every 10 minutes, every hour, etc.).
