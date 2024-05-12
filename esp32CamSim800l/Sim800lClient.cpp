@@ -158,6 +158,22 @@ int Sim800lClient::sendDataPage(File dataFile, int len){
    return counter;  
   }
 
+String Sim800lClient::getBatteryVoltage(void) {
+  String response = sendATcommand("AT+CBC","OK", 5000); 
+  int voltStartIndex = response.lastIndexOf(",") + 1;
+  String voltageStr = response.substring(voltStartIndex, voltStartIndex + 4);
+  float voltageFloat = voltageStr.toFloat() / 1000;
+  Serial.println("Voltage: " + String(voltageFloat, 2));
+  return voltageStr;
+}
+
+String Sim800lClient::getSignalStrength(void) {
+  String response =   sendATcommand("AT+CSQ","+CSQ:", 5000);
+  int startIndex = response.lastIndexOf(":") + 2;
+  String signalStr = response.substring(startIndex, startIndex + 2);
+  Serial.println("Signal Strength: " + signalStr);
+  return signalStr;
+}
 
 String Sim800lClient::readLineFromSerial(String stringToRead, unsigned long timeoutMillis){
     String result;
