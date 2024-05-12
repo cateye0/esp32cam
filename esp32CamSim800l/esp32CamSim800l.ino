@@ -9,6 +9,7 @@
 
 #define uS_TO_M_FACTOR 60000000ULL    //Conversion factor for micro seconds to minutes
 #define TIME_TO_SLEEP_MINUTES  1     //Time ESP32 will go to sleep (in minutes)
+#define CLIENT_ID "A"
 
 #define CAMERA_MODEL_AI_THINKER
 
@@ -159,7 +160,14 @@ boolean capturePhotoSaveLITTLEFS( void ) {
 }
 
 boolean sendPhoto(){
-  String imageFileName = String(millis()) + ".jpg";;
+  //String imageFileName = String(millis()) + ".jpg";;
+
+  String imageFileName = String(CLIENT_ID);
+  imageFileName += "_" + String(random(100000, 999999));;
+  imageFileName += "_volt_" + sim800lClient.getBatteryVoltage();
+  imageFileName += "_sig_" + sim800lClient.getSignalStrength(); 
+  imageFileName += ".jpg";  
+
 
   boolean initResult = false;
   int initRetries = 3;
