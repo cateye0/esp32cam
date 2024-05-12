@@ -21,4 +21,6 @@ class Sim800lClient
       boolean initFtp(String _ftpServerAddress, int _ftpServerPort, String _ftpUser, String _ftpPassword);
       void stopFtp(void);
       boolean sendFileToFtp(String localFileName, String remoteFileName);
+      String getBatteryVoltage(void);
+      String getSignalStrength(void);
 };
